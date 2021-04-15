@@ -83,7 +83,8 @@ class PostsController extends Controller
     }
 
     public function contact(){
-        return view('contact');
+        $people = ['Ahmad','Hamza','Edwin','Saif'];
+        return view('contact',compact('people'));
     }
 
     public function show_post($id,$name,$password){
