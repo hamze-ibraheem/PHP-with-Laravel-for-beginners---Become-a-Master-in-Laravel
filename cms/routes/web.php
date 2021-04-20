@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,7 @@ Route::get('/', function () {
 //Route::resource('posts', [PostsController::class]);
 Route::get('contact',[PostsController::class,'contact']);
 Route::get('post/{id}/{name}/{password}',[PostsController::class,'show_post']);
+
+Route::get('/insert',function(){
+    DB::insert('insert into posts (title, content) values (?, ?)', ['post 1', 'Content 1']);
+});
