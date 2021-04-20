@@ -26,3 +26,10 @@ Route::get('post/{id}/{name}/{password}',[PostsController::class,'show_post']);
 Route::get('/insert',function(){
     DB::insert('insert into posts (title, content) values (?, ?)', ['post 1', 'Content 1']);
 });
+
+Route::get('/read',function(){
+    return $results = DB::select('select * from posts where id = ?', [1]);
+    // foreach($results as $post){
+    //     return $post->title.' '.$post->content;
+    // }
+});
