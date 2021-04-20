@@ -33,3 +33,8 @@ Route::get('/read',function(){
     //     return $post->title.' '.$post->content;
     // }
 });
+
+Route::get('/update',function(){
+    $updated = DB::update('update posts set title = "updated title 1" where id = ?', [1]);
+    return $updated;
+});
