@@ -49,3 +49,7 @@ Route::get('/delete',function(){
 Route::get('/find',function(){
     return $posts = Post::find(2);
 });
+
+Route::get('/find-where',function(){
+    return $posts = Post::where('id',2)->orderBy('id','desc')->take(1)->get();
+});
