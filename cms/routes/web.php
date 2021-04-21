@@ -69,3 +69,7 @@ Route::get('/basic-insert',function(){
 Route::get('/create',function(){
     Post::create(['title'=>'title 4','content'=>'Content 4']);
 });
+
+Route::get('/update-where',function(){
+    return $posts = Post::where('id',2)->where('is_admin',0)->update(['title'=>'new title 22','content'=>'new content 22']);
+});
