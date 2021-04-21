@@ -3,6 +3,7 @@
 use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
+use App\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,10 +29,11 @@ Route::get('/insert',function(){
 });
 
 Route::get('/read',function(){
-    return $results = DB::select('select * from posts where id = ?', [1]);
+    //return $results = DB::select('select * from posts where id = ?', [1]);
     // foreach($results as $post){
     //     return $post->title.' '.$post->content;
     // }
+    return $posts = Post::all();
 });
 
 Route::get('/update',function(){
@@ -42,4 +44,8 @@ Route::get('/update',function(){
 Route::get('/delete',function(){
     $deleted = DB::delete('delete from posts where id = ?', [1]);
     return $deleted;
+});
+
+Route::get('/find',function(){
+    return $posts = Post::find(2);
 });
