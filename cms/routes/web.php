@@ -58,3 +58,10 @@ Route::get('/find-more',function(){
     return $posts = Post::findOrFail(1);
     // return $posts = Post::where('users_count','<',50)->firstOrFail();
 });
+
+Route::get('/basic-insert',function(){
+    $post = new Post;
+    $post->title = "title 3";
+    $post->content = "Content 3";
+    $post->save();
+});
