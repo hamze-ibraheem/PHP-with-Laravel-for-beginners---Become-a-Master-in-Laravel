@@ -65,3 +65,7 @@ Route::get('/basic-insert',function(){
     $post->content = "Content 3";
     $post->save();
 });
+
+Route::get('/create',function(){
+    Post::create(['title'=>'title 4','content'=>'Content 4']);
+});
