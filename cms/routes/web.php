@@ -53,3 +53,8 @@ Route::get('/find',function(){
 Route::get('/find-where',function(){
     return $posts = Post::where('id',2)->orderBy('id','desc')->take(1)->get();
 });
+
+Route::get('/find-more',function(){
+    return $posts = Post::findOrFail(1);
+    // return $posts = Post::where('users_count','<',50)->firstOrFail();
+});
