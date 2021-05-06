@@ -73,3 +73,15 @@ Route::get('/create',function(){
 Route::get('/update-where',function(){
     return $posts = Post::where('id',2)->where('is_admin',0)->update(['title'=>'new title 22','content'=>'new content 22']);
 });
+
+Route::get('/delete-where',function(){
+    $post = Post::find(5);
+
+    $post->delete();
+});
+
+Route::get('/delete-multiple',function(){
+    Post::destroy([3,4]);
+
+    //Post::where('is_admin',0)->delete();
+});
